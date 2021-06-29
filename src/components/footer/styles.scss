@@ -34,24 +34,24 @@
     }
   }
 
-  .pagination {
+  .home__footer_pagination {
     display: flex;
     flex-direction: row;
     list-style: none;
   }
 
-  .pagination li + li {
+  .home__footer_pagination li + li {
     margin-left: 1rem;
   }
 
-  .pagination__item--active {
+  .home__footer_pagination__item_active {
     background-color: (var(--blue));
     color: (var(--white));
     font-weight: bold;
     border: none;
   }
 
-  .pagination__item--active:focus {
+  .home__footer_pagination__item_active:focus {
     outline: none;
   }
 }

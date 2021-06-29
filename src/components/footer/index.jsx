@@ -15,7 +15,7 @@ const Footer = ({ limit, total, offset, setOffset }) => {
 
   return (
     <footer className="home__footer_container">
-      <ul className="pagination">
+      <ul className="home__footer_pagination">
         <li>
           <button
             onClick={() => onPageChange(current - 1)}
@@ -32,7 +32,7 @@ const Footer = ({ limit, total, offset, setOffset }) => {
                 onClick={() => onPageChange(page)}
                 className={
                   page === current
-                    ? "pagination__item--active"
+                    ? "home__footer_pagination__item_active"
                     : "pagination__button"
                 }
               >
@@ -45,7 +45,7 @@ const Footer = ({ limit, total, offset, setOffset }) => {
             onClick={() => onPageChange(current + 1)}
             disabled={current === pages}
           >
-             {">"}
+            {">"}
           </button>
         </li>
       </ul>
