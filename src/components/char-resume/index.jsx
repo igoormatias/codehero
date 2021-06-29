@@ -1,5 +1,5 @@
 import React from "react";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import "./styles.scss";
 
@@ -19,7 +19,7 @@ const CharResume = ({ characters }) => {
         <tbody>
           {characters.map((char) => {
             const goToDetails = () => {
-             history.push(`/chardetails/${char.id}`);
+              history.push(`/chardetails/${char.id}`);
             };
             return (
               <tr onClick={goToDetails} className="char__content" key={char.id}>
@@ -32,13 +32,13 @@ const CharResume = ({ characters }) => {
                 </td>
                 <td className="char__content__series_container">
                   {char.series.items.slice(0, 3).map((series) => {
-                    return <p key={series.id}>{series.name}</p>;
+                    return <p key={series.resourceURI}>{series.name}</p>;
                   })}
                 </td>
 
                 <td className="char__content__series_container">
                   {char.events.items.slice(0, 3).map((events) => {
-                    return <p key={events.id}>{events.name}</p>;
+                    return <p key={events.resourceURI}>{events.name}</p>;
                   })}
                 </td>
               </tr>

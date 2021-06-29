@@ -21,7 +21,7 @@ const Footer = ({ limit, total, offset, setOffset }) => {
             onClick={() => onPageChange(current - 1)}
             disabled={current === 1}
           >
-            Anterior
+            {"<"}
           </button>
         </li>
         {Array.from({ length: Math.min(MAX_ITEMS, pages) })
@@ -45,7 +45,7 @@ const Footer = ({ limit, total, offset, setOffset }) => {
             onClick={() => onPageChange(current + 1)}
             disabled={current === pages}
           >
-            Próxima
+             {">"}
           </button>
         </li>
       </ul>

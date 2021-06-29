@@ -21,26 +21,31 @@ const CharDetails = () => {
   let history = useHistory();
 
   useEffect(() => {
-    const loadHero = async () => {
-      const response = await fetch(
-        `${api}/characters${charId}?ts=${time}&apikey=${publicKey}&hash=${hash}`
-      );
-      const data = await response.json();
+    if (charId) {
+      const loadHero = async () => {
+        const response = await fetch(
+          `${api}/characters${charId}?ts=${time}&apikey=${publicKey}&hash=${hash}`
+        );
+        const data = await response.json();
 
-      setHero(data.data.results[0]);
-    };
-    loadHero();
-  }, []);
+        setHero(data.data.results[0]);
+      };
+      loadHero();
+    }
+  }, [charId]);
   useEffect(() => {
-    const loadChar = async () => {
-      const dataComic = await fetch(
-        `${api}characters/${charId}/series?ts=${time}&apikey=${publicKey}&hash=${hash}&limit=10`
-      );
-      const apidata = await dataComic.json();
-      setChar(apidata.data.results);
-    };
-    loadChar();
-  }, []);
+    if (charId) {
+      const loadChar = async () => {
+        const dataComic = await fetch(
+          `${api}characters/${charId}/series?ts=${time}&apikey=${publicKey}&hash=${hash}&limit=10`
+        );
+        const apidata = await dataComic.json();
+        setChar(apidata.data.results);
+      };
+      loadChar();
+    }
+    
+  }, [charId]);
   const comeBack = () => {
     history.push("/");
   };
@@ -50,22 +55,20 @@ const CharDetails = () => {
       <h1>{hero.name}</h1>
       <img
         src={`${hero?.thumbnail?.path}.${hero?.thumbnail?.extension}`}
-        alt="heroLogo"
+        alt="charlogo"
         className="char_details__img"
       />
-      <p>
-        {char.description}
-      </p>
+      <p>{char.description}</p>
 
       {hero?.comics?.items?.length > 1 ? (
-        <h3>{`Séries relacionadas ao ${hero.name}`}: </h3>
+        <h3>{`Sagas  relacionadas ao personagem ${hero.name}`} </h3>
       ) : (
-        <h3>Ops, sem quadrinhos para mostrar</h3>
+        <h3>Não a dados para exibir</h3>
       )}
       <ul className="char_details__grid">
-        {char?.slice(0, 6).map((item) => {
+        {char?.slice(0, 12).map((item) => {
           return (
-            <li>
+            <li key={item.id}>
               <div className="char_details__comic_details">
                 <p> {item.title}</p>
 
