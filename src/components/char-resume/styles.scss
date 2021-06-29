@@ -60,6 +60,13 @@
         letter-spacing: 0px;
         color: (var(--smoke-700));
         opacity: 1;
+
+        @media (max-width: 720px) {
+          font-size: 14px;
+        }
+        @media (max-width: 380px) {
+          font-size: 12px;
+        }
       }
 
       .char__content__series_container {
