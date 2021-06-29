@@ -11,7 +11,7 @@ Code Hero
 <br>
 
 ## Sobre o desafio
-Neste desafio utilizei a api da Marvel para desenvolver uma aplicação que permitisse realizar buscas por herois. E listar a sagas relacionadas ao personagem.
+Neste desafio utilizei a api da Marvel para desenvolver uma aplicação que permitisse realizar buscas por herois e listar a sagas relacionadas ao personagem.
 <br>
 
 
