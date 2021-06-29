@@ -5,9 +5,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
+
+  @media (max-width: 720px) {
+    padding: 0;
+  }
 
   img {
     width: 96px;
@@ -19,28 +22,23 @@
     flex-direction: row;
 
     strong {
-        font-size: 14px;
-        font-family: PT Sans Caption,Bold;
-        color: (var(--smoke-700));
-        text-align: left;
-        letter-spacing: 0px;
-        opacity: 1;
-        margin-right: 5px;
-    
-      }
-    
-      p {
-        font-size: 14px;
-        font-family: PT Sans Caption,Regular;
-        color: (var(--smoke-700));
-        text-align: left;
-        letter-spacing: 0px;
-        opacity: 1;
-        margin-right: 15px;
-      }
+      font-size: 14px;
+      font-family: PT Sans Caption, Bold;
+      color: (var(--smoke-700));
+      text-align: left;
+      letter-spacing: 0px;
+      opacity: 1;
+      margin-right: 5px;
+    }
+
+    p {
+      font-size: 14px;
+      font-family: PT Sans Caption, Regular;
+      color: (var(--smoke-700));
+      text-align: left;
+      letter-spacing: 0px;
+      opacity: 1;
+      margin-right: 15px;
+    }
   }
-
- 
-
-  
 }
