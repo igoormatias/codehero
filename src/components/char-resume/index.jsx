@@ -1,68 +1,51 @@
 import React from "react";
+import {useHistory} from "react-router-dom";
 
 import "./styles.scss";
 
 const CharResume = ({ characters }) => {
-  // console.log("veio da api haha", characters);
-
-  /*   const series = characters?.series?.items?.slice(0, 2);  */
-  /* 
-  console.log('SERIE', series); */
+  let history = useHistory();
 
   return (
     <div className="char__container">
       <table cellSpacing="10">
-        <tr className="char__content_label">
-          <th>Personagens</th>
-          <th className="char__content_title">Séries</th>
-          <th className="char__content_title">Eventos</th>
-        </tr>
-        {characters.map((char) => {
-          return (
-            <tr className="char__content" key={char.id}>
-              <td >
-                <img
-                  src={`${char.thumbnail.path}.${char.thumbnail.extension}`}
-                  alt="avatar"
-                />
-                <strong>{char.name}</strong>
-              </td>
-              <td className="char__content__series_container">
-                {char.series.items.slice(0, 3).map((series) => {
-                  return <p key={series.name}>{series.name}</p>;
-                })}
-              </td>
+        <thead>
+          <tr className="char__content_label">
+            <th>Personagens</th>
+            <th className="char__content_title">Séries</th>
+            <th className="char__content_title">Eventos</th>
+          </tr>
+        </thead>
+        <tbody>
+          {characters.map((char) => {
+            const goToDetails = () => {
+             history.push(`/chardetails/${char.id}`);
+            };
+            return (
+              <tr onClick={goToDetails} className="char__content" key={char.id}>
+                <td>
+                  <img
+                    src={`${char.thumbnail.path}.${char.thumbnail.extension}`}
+                    alt="avatar"
+                  />
+                  <strong>{char.name}</strong>
+                </td>
+                <td className="char__content__series_container">
+                  {char.series.items.slice(0, 3).map((series) => {
+                    return <p key={series.id}>{series.name}</p>;
+                  })}
+                </td>
 
-              <td className="char__content__series_container">
-                {char.events.items.slice(0, 3).map((events) => {
-                  return <p key={events.name}>{events.name}</p>;
-                })}
-              </td>
-            </tr>
-          );
-        })}
+                <td className="char__content__series_container">
+                  {char.events.items.slice(0, 3).map((events) => {
+                    return <p key={events.id}>{events.name}</p>;
+                  })}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
-      {/*  {characters.map((char) => {
-        return (
-          <div key={char.id} className="char__content">
-            <img
-              src={`${char.thumbnail.path}.${char.thumbnail.extension}`}
-              alt="avatar"
-            />
-            <strong>{char.name}</strong>
-            <div className="char__content__series_container">
-              {char.series.items.slice(0, 3).map((series) => {
-                return <p key={series.name}>{series.name}</p>;
-              })}
-            </div>
-            <div className="char__content__series_container">
-              {char.events.items.slice(0, 3).map((events) => {
-                return <p key={events.name}>{events.name}</p>;
-              })}
-            </div>
-          </div>
-        );
-      })} */}
     </div>
   );
 };

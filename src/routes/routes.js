@@ -3,13 +3,15 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Header from "../components/header";
 import HomePage from "../pages/home";
+import CharDetails from "../pages/chardetails";
 
 const Routes = () => (
   <BrowserRouter>
     <Header />
     <Switch>
-      <Route path="/" exact component={HomePage} />
     </Switch>
+      <Route path="/" exact component={HomePage} />
+      <Route path="/chardetails/:characterid" exact component={CharDetails} />
   </BrowserRouter>
 );
 

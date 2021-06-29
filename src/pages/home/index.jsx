@@ -13,9 +13,7 @@ const HomePage = () => {
   const [characters, setCharacteres] = useState([]);
   const [total, setTotal] = useState([]);
   const [offset, setOffset] = useState(0);
-
   const [inputValue, setInputValue] = useState("");
-  const [error, setError] = useState(false);
 
   const publicKey = "1846a1f01be4d50eda85a9cf893b46eb";
   const privateKey = "d2fd8d912397a25a31516139afd6f527bcc71261";
@@ -35,28 +33,21 @@ const HomePage = () => {
         const data = await response.json();
         setCharacteres(data.data.results);
         setTotal(data.data.total);
-        console.log("UseEffect", characters);
       } else {
         const response = await fetch(
           `${api}characters?nameStartsWith=${inputValue}&ts=${time}&apikey=${publicKey}&hash=${hash}&limit=10`
         );
         const data = await response.json();
         setCharacteres(data.data.results);
-      setTotal(data.data.total);
-      console.log("UseEffect", characters);
+        setTotal(data.data.total);
       }
-
-      
     }
     load();
   }, [offset, inputValue]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    setError(false);
   };
-
-  
 
   return (
     <>
@@ -70,9 +61,7 @@ const HomePage = () => {
               placeholder="Search"
               onChange={handleInputChange}
               value={inputValue}
-              error={error ? true : false}
             />
-            
           </div>
         </div>
 
