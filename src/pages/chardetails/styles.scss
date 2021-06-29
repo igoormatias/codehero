@@ -27,7 +27,7 @@
     }
 
     
-    @media (max-width: 770px) {
+    @media (max-width: 720px) {
         width: 90%;
         
     }
@@ -62,12 +62,21 @@
         width: 20rem;
         border-radius: 1rem;
         border: 2px solid var(--smoke);
+
+        @media (max-width: 720px) {
+            height: 15rem;;
+            width: 15rem;
+          }
+
+        
         
     }
     .char_details__comic_details {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        
         img {
             width: 12rem;;
             height:  12rem;;
